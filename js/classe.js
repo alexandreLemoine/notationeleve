@@ -40,6 +40,18 @@ class Eleve{
         }
     }
 
+    //Renvoie la moyenne
+    generateAverage(){
+        
+        let sum = 0; 
+
+        this.matieres.forEach(function(matiere){
+            sum += matiere.generateAverage();
+        });
+
+        return sum / this.matieres.length;
+    }
+
     get identite(){
         return this.nom+' '+this.prenom;
     }
@@ -68,7 +80,20 @@ class Matiere{
     // genere de manière aléatoire entre 0 et 19 quatre notes
     generateNotes(){
         for(let i = 0;i < 4; i++){
-            this.notes.push(Math.random().toPrecision(2) * 20);
+
+            this.notes.push(Math.random() * 20);
         }
+    }
+
+
+    generateAverage(){
+        
+        let sum = 0;
+
+        for(let i=0;i<this.notes.length;i++){
+            sum += this.notes[i];
+        }
+
+        return sum / this.notes.length;
     }
 }
