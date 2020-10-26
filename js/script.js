@@ -20,5 +20,8 @@ listeEleve.forEach(function(eleve,index){
 
 function displayNotesEleve(){
   
-    alert(displayListeEleve.value);
+    document.getElementById('nomEleve').innerHTML = listeEleve[displayListeEleve.value].nom;
+    document.getElementById('prenomEleve').innerHTML = listeEleve[displayListeEleve.value].prenom;
+    document.getElementById('ageEleve').innerHTML = listeEleve[displayListeEleve.value].age;
+    
 }
