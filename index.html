@@ -13,6 +13,7 @@
 </head>
 <body>
     
+    <!-- liste d'élève remplie dynamiquement en JS-->
     <div class="input-group">
         <select class="custom-select" id="listeEleve" aria-label="Example select with button addon">
         </select>
@@ -21,6 +22,7 @@
         </div>
     </div>
 
+    <!-- Element propre à leleve affiché sous forme de container-->
     <div class="container">
         <div class="row">
           <label for="nomEleve">NOM : </label>
@@ -37,6 +39,23 @@
           </div>
         </div>
       </div>
+
+    <!-- Affichage des matières -->
+
+    <table class="table table-striped" id="notesEleve">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">1</th>
+            <th scope="col">2</th>
+            <th scope="col">3</th>
+            <th scope="col">4</th>
+          </tr>
+        </thead>
+        <tbody id="contentNotes">
+
+        </tbody>
+    </table>
 
     <script type="text/javascript" src="js/classe.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
