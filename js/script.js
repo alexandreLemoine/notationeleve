@@ -1,77 +1,24 @@
-/* CLASSE ELEVE 
-*
-*   définit un eleve et génère une liste de matiere
-*   @nom : string
-*   @prenom : string
-*   @age : int
-*   @matieres : []Matiere
-*
-**/
+//Création des eleves
+var listeEleve = [];
 
-class Eleve{
+listeEleve.push(new Eleve("alexandre","lemoine","31"));
+listeEleve.push(new Eleve("Jean","Dupont","27"));
+listeEleve.push(new Eleve("Napoléon","Bonaparte","18"));
+listeEleve.push(new Eleve("Winston","Churchill","44")); 
 
-    nom;
-    prenom;
-    age;
-    matieres;
+// Injection des élèves dans la liste déroulante
+var displayListeEleve = document.getElementById("listeEleve");
 
-    //Constructeur
-    constructor(nom,prenom,age){
+listeEleve.forEach(function(eleve,index){
 
-        this.nom = nom;
-        this.prenom = prenom;
-        this.age = age;    
-        this.matieres = [];    
+    let option = document.createElement("option");
+    option.text = eleve.identite;
+    option.value = index;
+    displayListeEleve.add(option);
+    
+});
 
-        this.generateMatiere();
-    }
-
-    /* Génère autant de matière que celles contenues dans
-        dans la variable static situé dans Matiere
-    */
-    generateMatiere(){
-                
-        for(let i = 0;i < Matiere.labelMatieres.length;i++){
-            
-            //Création d'un objet Matiere 
-            let matiere = new Matiere(Matiere.labelMatieres[i]);
-            this.matieres.push(matiere);
-            
-        }
-
-    }
+function displayNotesEleve(){
+  
+    alert(displayListeEleve.value);
 }
-
-/* CLASSE MATIERE 
-*
-*   définit une matière et génère une liste de note aléatoire
-*    @nom : string
-*   @notes : float[]
-*
-**/
-class Matiere{
-
-    static labelMatieres = ['Français','Maths','Histoire'];
-
-    nom;
-    notes;
-
-    constructor(nom){
-        this.nom = nom;
-        this.notes = [];
-        this.generateNotes();
-    }
-
-    // genere de manière aléatoire entre 0 et 19 quatre notes
-    generateNotes(){
-        for(let i = 0;i < 4; i++){
-            this.notes.push(Math.random().toPrecision(2) * 20);
-        }
-    }
-}
-
-//Création d'un élève
-let eleve1 = new Eleve("alexandre","lemoine","31");
-
-console.debug(eleve1);
-console.debug(eleve1.matieres[0].notes[0]);
